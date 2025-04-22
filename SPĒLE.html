@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzmini Ciparu Spēle</title><!--Spēles virsraksts--> 
+    <script src="SPĒLE.js"></script>
+    <script src="Index.html"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+    </style>
+</head>
+<body 
+style="background-color: rgb(206, 155, 195);">
+    <div id="container">
+        <nav>
+            <ul>
+                <li><a href="Index.html">MĀJAS</a></li>
+                
+            
+            <ul>
+                    <li><a href="#">Vasara 2024</a></li>
+                    <li><a href="#">Vasara 2023</a></li>
+                    <li><a href="#">Vasara 2022</a></li>
+            </ul>        
+                </li>
+              
+                <ul>
+                    <li><a href="#">Jūnijā</a></li>
+                    <li><a href="#">Jūlijā</a></li>
+                    <li><a href="#">Augustā</a>
+                    <!-- Second Tier Drop Down -->
+                    <ul>
+                        <li><a href="#">Atmiņas</a></li>
+                        <li><a href="#">Bildes</a></li>
+                
+                            <!-- Third Tier Drop Down -->
+                            <ul>
+                                <li><a href="#">Ģimene</a></li>
+                                <li><a href="#">Draugi</a></li>
+                                <li><a href="#">Es</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+                </li>
+                
+            
+                
+                
+                <li><a href="Jolka.html">EGLĪTE</a></li>
+                <li><a href="Reģistracija.html">JAUNS KONTS</a></li>
+                <li><a href="05.11.2024.html">POGA</a></li>
+                <li><a href="SPĒLE.html">SPĒLE</a></li>
+                <li><a href="SPĒLE2.html">MINI SPĒLE</a></li>
+                <li><a href="Kalkulators.html">KALKULATORS</a></li>
+                <li><a href="25.03.2025.html">VIKTORĪNA</a></li>
+                <li><a href="Atkārtojums.html">FORMAS</a></li>
+                <li><a href="Figma.html">SAZINIETIES AR MUMS</a></li>
+                <li><a href="daramodarbusaraksts.html">DARĀMO DARBU SARAKSTS</a></li>
+            
+            </ul>
+        </nav>
+      
+    </div> 
+
+    <div class="game-container">
+        <h1 style="color: blueviolet;font-size: 30px;">Uzmini ciparu, kuru esmu izvēlējies (no 1 līdz 30)</h1><!--Virsraksts-->
+
+        <input type="number" id="guess" min="1" max="30"> <!--Norāda no cik līdz cik vari minēt ciparus-->
+        <button onclick="checkGuess()">Pārbaudīt</button><!--Pārbauda vai tevis izvēlētais skaitlis ir pareizs-->
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+
+        const secretNumber = Math.floor(Math.random() * 30) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = document.getElementById('guess').value;
+            const messageDiv = document.getElementById('message');
+            attempts++;
+
+            if (userGuess == secretNumber) {
+                messageDiv.textContent = `Apsveicu! Tu uzminēji pareizi! Izmēģinājumi: ${attempts}`;
+                messageDiv.style.color = 'green';
+            } else if (userGuess < secretNumber) {
+                messageDiv.textContent = `Par maz! Mēģini vēlreiz.`;
+                messageDiv.style.color = 'red';
+            } else if (userGuess > secretNumber) {
+                messageDiv.textContent = `Par daudz! Mēģini vēlreiz.`;
+                messageDiv.style.color = 'red';
+            }
+        }
+    </script>
+
+</body>
+</html>
